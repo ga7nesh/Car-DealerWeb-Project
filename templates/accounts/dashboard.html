@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %} | Dashboard {% endblock %}
+{% block content %}
+
+<!-- Sub banner start -->
+<!-- Log on to codeastro.com for more projects -->
+<div class="sub-banner overview-bgi">
+    <div class="container breadcrumb-area">
+        <div class="breadcrumb-areas">
+            <h1>Dashboard</h1>
+            <ul class="breadcrumbs">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li class="active">{{user.first_name}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Sub Banner end -->
+<!-- Log on to codeastro.com for more projects -->
+
+<!--   Dashboard Start   -->
+
+<div class="container mt-50 mb-50">
+  {% include 'includes/messages.html' %}
+	<div class="main-title" style="text-align:left !important;">
+            <h1>Welcome <span>{{user.first_name}} {{user.last_name}},</span></h1>
+            <p>Here are the list of the cars that you have inquired about:</p>
+        </div>
+        {% if inquiries %}
+            <table class="table table-hover table-bordered table-striped">
+              <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Car Name</th>
+                <th scope="col">Location</th>
+                <th scope="col">Action</th>
+              </tr>
+              </thead>
+              <tbody>
+
+              {% for inquiry in inquiries %}
+                <tr>
+                  <!-- <th scope="row">{{ forloop.counter }}</th> -->
+                  <th scope="row">1</th>
+                  <td>{{inquiry.car_title}}</td>
+                  <td>{{inquiry.city}}</td>
+                  <td><a href="{% url 'car_detail' inquiry.car_id %}" class="btn btn-dark">View Car</a></td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table><!-- Log on to codeastro.com for more projects -->
+        {% else %}
+        <div class="alert alert-primary" role="alert">
+          <h4>You have no inquiries!!</h4>
+        </div>
+          
+        {% endif %}
+
+</div>
+
+<!--   Dashboard End   -->
+
+{% endblock %}

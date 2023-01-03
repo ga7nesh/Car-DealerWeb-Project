@@ -1,0 +1,13 @@
+**Log on to codeastro.com for more projects!**
+
+
+**Instructions**
+(You can also create and use virtual environment)
+- Install the Requirements: pip install -r requirements.txt
+- Create a PostgreSQL database named "cardealer_db"
+- Configure PostgreSQL Database credentials under settings.py
+- Then, make database migrations: python manage.py makemigrations
+- python manage.py migrate
+- And finally, run the application: python manage.py runserver
+
+For Admin Account, please create one using superuser!

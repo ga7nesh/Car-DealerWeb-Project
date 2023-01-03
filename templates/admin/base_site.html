@@ -1,0 +1,12 @@
+{% extends 'admin/base.html' %}
+{% load static %}
+
+{% block branding %}
+  <h1 id="head">
+    <a href="/admin"><img src="{% static 'img/logos/cardealerLogo.png' %}" alt="" class="brand_img" height="60" width="200"></a>
+  </h1><!-- Log on to codeastro.com for more projects -->
+{% endblock %}
+
+{% block extrastyle %}
+  <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+{% endblock %}
